@@ -55,7 +55,7 @@ Recommend to use [Obsidian Web Clipper](https://obsidian.md/clipper) to capture 
 ## New Features in planning
 
 |         Function of the skill                                       |Supported? (✅/❌)|
-|---------------------------------------------------------------------|-------------------------------- -|
+|---------------------------------------------------------------------|----------------------------------|
 | Self correction based on logged failures after applying lint rules  |      ❌                          |
 | Parsing multimedia content and improve wiki context                 |      ❌                          |
 | Build file based embeddings to help speed up queries when wiki grows large | ❌                        |
