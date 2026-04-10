@@ -44,6 +44,8 @@ The SKILL is configured to be activated when you:
 - Asks questions about a wiki or knowledge base
 - Lint, audit, or health-check the wiki, make sure they are in good shape
 
+__Note:__ you have to activate your agent (Codex Cli, Gemini Cli, Claude Code Cli etc) on the root level of your wiki such as `llm-wiki/`, otherwise the skill will not work.
+
 ## Obsidian Integrations
 
 Obsidian is a great note taking tool that helps organize your docs and setup cross-references between them. You can have a good visualization of your knowledge base in a graph view.
@@ -52,11 +54,11 @@ Recommend to use [Obsidian Web Clipper](https://obsidian.md/clipper) to capture 
 
 ## New Features in planning
 
-|         Function of the skill                                       |Supported? (:white_check_mark:/:x:)|
-|---------------------------------------------------------------------|-----------------------------------|
-| Self correction based on logged failures after applying lint rules  |      :x:                          |
-| Parsing multimedia content and improve wiki context                 |      :x:                          |
-| Build file based embeddings to help speed up queries when wiki grows large | :x:                        |
+|         Function of the skill                                       |Supported? (✅/❌)|
+|---------------------------------------------------------------------|-------------------------------- -|
+| Self correction based on logged failures after applying lint rules  |      ❌                          |
+| Parsing multimedia content and improve wiki context                 |      ❌                          |
+| Build file based embeddings to help speed up queries when wiki grows large | ❌                        |
 
 ## License
 
