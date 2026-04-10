@@ -1,0 +1,7 @@
+[project]
+name = "llm-wiki-skill"
+version = "1.0.0"
+description = "Add your description here"
+requires-python = ">=3.10"
+readme = "README.md"
+dependencies = []
