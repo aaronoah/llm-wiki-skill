@@ -157,13 +157,13 @@ cross-referenced by the agent.
 1. Read the files in `raw/` using the code block below, the output is a list of each file metadata with `mtime`.
 
 ```bash
-python3 ./scripts/ingest.py --collect ./raw
+python3 $HOME/.agents/skills/llm-wiki-skill/scripts/ingest.py --collect ./raw
 ```
 
 2. Read last line of `log.md` to retrieve the "date time", use the below code block to retrieve its `mtime`
 
 ```bash
-python3 ./scripts/ingest.py --iso-to-mtime "date time"
+python3 $HOME/.agents/skills/llm-wiki-skill/scripts/ingest.py --iso-to-mtime "date time"
 ```
 
 then find files generated in step 1 that are added after the "date time".
@@ -195,16 +195,20 @@ __Note:__ Below are 4 rules we lint, after they are checked, add a entry in `log
 2. Find any orphan pages that no cross-link to other pages, using below code. The output is a list of orphan page file names.
 
 ```bash
-python3 ./scripts/links --orphan ./generated
+python3 $HOME/.agents/skills/llm-wiki-skill/scripts/links.py --orphan ./generated
 ```
 3. and find any cross-links that are broken (unreachable), using below code. The output is a dictionary of file name to all its own broken links 
 
 ```bash
-python3 ./scripts/links --broken ./generated
+python3 $HOME/.agents/skills/llm-wiki-skill/scripts/links.py --broken ./generated
 ```
 4. Every wiki page under `generated/` should be listed in `index.md`, flag any pages that are not listed.
 
-## Pitfalls
+## Rules (MUST FOLLOW)
+
+- **Always print a message to user when a task is finished, follow the below template:
+
+|-------Your request has been taken care of!---------|
 
 - **Never modify files in `raw/`** — sources are immutable. Corrections go in wiki pages.
 - **Always orient first** — read SCHEMA + index + recent log before any operation in a new session.

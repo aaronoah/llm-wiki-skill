@@ -36,6 +36,8 @@ npx -v
 npx skills add aaronoah/llm-wiki-skill
 ```
 
+__Note:__ make sure you install the skill under `~/.agents` for global setting, any CLI agents (Codex, Claude Code, Gemini etc) can use that. If you prefer to install per project, you need to manually edit `SKILL.md` script path to point to your project root level.
+
 ## Usage
 
 The SKILL is configured to be activated when you:
