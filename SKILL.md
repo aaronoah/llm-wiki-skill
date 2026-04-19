@@ -24,7 +24,7 @@ Continuously update and grow a persistent knowledge base composed of interlinked
 
 Below is a sample wiki directory structure:
 ```
-llm-wiki/
+llm-wiki/               # Layer 0: the root level wiki folder name
 ├── SCHEMA.md           # Layer 3: A document for User and LLM to co-evolve the wiki conventions, structure of wiki and tag taxonomy
 ├── index.md            # Always exists, regardless of SCHEMA.md definition. Catalog of everything, organizaed by categoies (entities, concepts etc), each page listed with a link and a one-line summary
 ├── log.md              # Always exists, regardless of SCHEMA.md definition. Chronological action log (append-only, rotated yearly)
@@ -37,7 +37,7 @@ llm-wiki/
 │   ├── comparisons/    # Side-by-side analysis (between entities or between topics)
 ```
 
-3 layers will be explained in next secion. The Wiki or the knowledge base is built using above structure, user can **ONLY** apply this skill when the CLI agent (Codex, Claude Code, Gemini etc) is invoked at the `llm-wiki/` folder root level given that agents have scoped file-system permissions, that means there should be `SCHEMA.md`, `index.md`, `log.md` and `raw/`, `generated/` folders underneath. If user invokes CLI agent anywhere else inside the wiki subfolders this skill will abort. 
+3 layers will be explained in next secion. The Wiki or the knowledge base is built using above structure, user can **ONLY** apply this skill when the CLI agent (Codex, Claude Code, Gemini etc) is invoked at the `llm-wiki/` (or user customized folder name) folder root level given that agents have scoped file-system permissions, that means there should be `SCHEMA.md`, `index.md`, `log.md` and `raw/`, `generated/` folders underneath. If user invokes CLI agent anywhere else inside the wiki subfolders this skill will abort. 
 
 
 ### index.md Template
@@ -140,11 +140,11 @@ Side-by-side analysis in markdown. Include:
 **Layer 1 — Raw Contents:** Immutable directory and files. The agent can read but can never modify them.
 **Layer 2 — The Wiki or knowledge base:** Agent-owned directories and markdown files. Created, updated, and
 cross-referenced by the agent.
-**Layer 3 — The Schema:** `SCHEMA.md` defines user preferences of `llm-wiki/` conventions, and tag taxonomy.
+**Layer 3 — The Schema:** `SCHEMA.md` defines user preferences of `llm-wiki/` (or user customized folder name) conventions, and tag taxonomy.
 
 ### Create a New Wiki
 
-1. Create the directory structure as in [Directory Structure](#directory-structure).
+1. Ask user preference of Layer 0 then create the directory structure as in [Directory Structure](#directory-structure).
 2. Ask user preferences of Layer 1 and Layer 2 directory structures and print the directory structure to confirm user intent.
 3. Print conventions based on [SCHEMA.md](#schemamd-template), ask user preferences of conventions if they want to change.
 4. Write updated template of [SCHEMA.md](#schemamd-template) to `SCHEMA.md` with user preferences based on 2 and 3.
